@@ -1,0 +1,79 @@
+/* CSS for the red heart icon */
+.red-heart {
+  color: red; /* Change the color to red */
+}
+.red-heart:hover {
+  color: #ff0000; /* Change the color to red when hovered */
+}
+/* CSS for the animation */
+.heart-pulse {
+  animation: pulse 0.5s linear; /* Define the animation */
+}
+/* CSS for the unlike animation */
+.heart-break {
+  animation: breakHeart 1s ease-in-out; /* Define the animation for heart breaking */
+  transform-origin: center; /* Set transform origin to the center */
+}
+
+#like-btn:hover {
+  color: #ff0000;
+  transform: scale(1.2);
+}
+
+/* Keyframes for the animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  50% {
+    transform: scale(1.2); /* Scale up */
+  }
+  100% {
+    transform: scale(1); /* Back to original scale */
+  }
+}
+
+/* Keyframes for the unlike animation */
+@keyframes breakHeart {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg); /* Rotate and scale */
+    opacity: 0.5; /* Lower opacity */
+  }
+  100% {
+    transform: scale(0) rotate(90deg); /* Scale down and rotate */
+    opacity: 0; /* Fade out */
+  }
+}
+.comment-box {
+  transition: height 0.5s ease, opacity 0.5s ease; /* Apply transition for height and opacity */
+}
+
+.comment-box.closed {
+  height: 0; /* Set height to 0 when closed */
+  opacity: 0; /* Make the component transparent when closed */
+  overflow: hidden; /* Hide the content when closed */
+}
+
+.black-save {
+  color: black;}
+.black-save:hover {
+  color: black;
+}
+/* CSS for the animation */
+.black-pulse {
+  animation: pulse 0.5s linear; /* Define the animation */
+}
+/* CSS for the unlike animation */
+.black-break {
+  animation: breakHeart 1s ease-in-out; /* Define the animation for heart breaking */
+  transform-origin: center; /* Set transform origin to the center */
+}
+
+#save-btn:hover {
+  color: black;
+  transform: scale(1.2);
+}
+

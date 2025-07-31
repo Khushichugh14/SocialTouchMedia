@@ -1,0 +1,56 @@
+<h2>Profile Settings</h2>
+<div class="profile-settings d-flex d-col">
+   
+  <h2 class="text-center m-3">Edit Profile</h2>
+  <div class="profile-info d-flex">
+    
+    <div class="m-3">
+      <label for="profile-pic" class="text-success m-1">Edit Profile Picture</label>
+    <img
+          [src]="
+            API_URL.BACKEND_URL + 'getUploadfiles/' + UserDetails.image_url
+          "
+          alt="User Profile Picture"
+        />
+    <input type="file" id="profile-pic" class="m-2" (change)="onFileSelected($event, user_id)">
+    </div>
+    <div class="user-details details-card m-3">
+      <p >Username: <span class="detail-card">{{ UserDetails.user_name }}</span> <button (click)="editUsername()" class="m-1 bg-white"><i class="fa-solid fa-pen "></i></button></p>
+      <p >Bio: <span class="detail-card">{{ UserDetails.bio }}</span> <button (click)="editBio()" class="m-1 bg-white"><i class="fa-solid fa-pen"></i></button></p>
+      <p class="text-success ">Personal Details</p>
+      <p><i class="fa-solid fa-phone m-1"></i><span>{{ UserDetails.contact}}</span></p>
+      <p><i class="fa-solid fa-envelope m-1"></i><span>{{ UserDetails.email}}</span></p>
+    </div>
+    
+    <!-- <div class="user-details">
+      <p>Username: Anne98</p>
+      <p>Full Name: Anne Brook</p>
+      <p>Email: annebrook98@gmail.com</p>
+    </div> -->
+  </div>
+  
+
+
+  </div>
+  
+  <h2 class="text-center m-3">Password & Security</h2>
+  <div class="password-security m-3"> 
+    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()" class="password-container">
+      <div>
+        <label for="current-password">Current Password</label>
+        <input class="m-1" type="password" id="current-password" formControlName="current_password">
+      </div>
+      <div>
+        <label for="new-password" >New Password</label>
+        <input class="m-1" type="password" id="new-password" formControlName="new_password">
+      </div>
+      <div>
+        <label for="confirm-password">Confirm New Password</label>
+        <input class="m-1" type="password" id="confirm-password" formControlName="confirm_password">
+      </div>
+      <button type="submit" class="btn btn-social">Change Password</button>
+    </form>
+    
+    
+  </div>
+  

@@ -1,0 +1,95 @@
+<form
+  [formGroup]="createPostForm"
+  (ngSubmit)="createPost()"
+  class="card w-100 shadow-xss rounded-xxl border-0 ps-4 pt-4 pe-4 pb-3 mb-2 mt-2 d-flex flex-column justify-content-center align-items-start"
+>
+  <div class="d-flex justify-content-between w-100 align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
+      <i class="fa-solid fa-pen-to-square mx-2"></i>
+      <div class="">Create Post</div>
+    </div>
+    <div class="create">
+      <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+  </div>
+
+  <div class="card-body p-0 mt-3">
+    <figure class="avatar position-absolute ms-2 mt-2 top-5">
+      <img
+        src="https://images.unsplash.com/photo-1682685794304-99d3d07c57d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+        alt="image"
+        class="shadow-sm rounded-circle w30"
+        style="width: 30px; height: 30px"
+      />
+    </figure>
+    <textarea
+      name="message"
+      class="h100 w-100 rounded-xxl p-2 ps-5 font-xssss text-grey-500 fw-500 border rounded-2 theme-dark-bg"
+      cols="100"
+      rows="3"
+      placeholder="What's on your mind?"
+      formControlName="caption"
+    ></textarea>
+    <div
+      *ngIf="formSubmitted && createPostForm.get('caption')?.errors?.['required']"
+      class="text-danger"
+    >
+      Caption is required
+    </div>
+  </div>
+  <div class="w-100">
+    <div class="d-flex align-items-center">
+      <i class="fa-solid fa-hashtag p-2"></i>
+      <label class="p-2">Tags</label>
+    </div>
+    <input
+      type="text"
+      class="border mt-1 rounded w-100 p-2"
+      placeholder="Enter Tags eg. #Celebrate"
+      formControlName="tags"
+    />
+    <div
+      *ngIf="formSubmitted && createPostForm.get('tags')?.errors?.['required']"
+      class="text-danger"
+    >
+      Tags are required
+    </div>
+  </div>
+  <div class="d-flex justify-content-around w-100 mt-2">
+    <a href="" class="d-flex pt-2 align-items-center text-dark">
+      <i class="fa-solid fa-video p-2 fa-2x" style="color: #b197fc"></i>
+      <div class="p-2">Live Video</div>
+    </a>
+    <a
+      (click)="openFileSelector()"
+      class="d-flex pt-2 justify-content-evenly align-items-center text-dark"
+      style="cursor: pointer"
+    >
+      <i class="fa-regular fa-image p-2 fa-2x" style="color: #b197fc"></i>
+      <div class="d-flex flex-column">
+        <div class="p-2">Photo/Video</div>
+        <div
+          *ngIf="formSubmitted && createPostForm.get('image_url')?.errors?.['required']"
+          class="text-danger"
+        >
+          Image is required
+        </div>
+      </div>
+      <br />
+    </a>
+
+    <input
+      #fileInput
+      type="file"
+      id="fileInput"
+      style="display: none"
+      accept="image/*, video/*"
+      (change)="read($event)"
+    />
+
+    <a href="" class="d-flex pt-2 pe-2 align-items-center text-dark">
+      <i class="fa-solid fa-camera p-2 fa-2x" style="color: #b197fc"></i>
+      <div class="p-2">Feeling/Activity</div>
+    </a>
+  </div>
+</form>

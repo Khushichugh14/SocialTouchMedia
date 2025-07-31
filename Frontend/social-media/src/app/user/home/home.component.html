@@ -1,0 +1,71 @@
+<header>
+  <div class="container2" >
+    <div class="user-profile">
+      <div class="user-image">
+        <img
+          [src]="
+            API_URL.BACKEND_URL + 'getUploadfiles/' + UserDetails.image_url
+          "
+          alt="User Profile Picture"
+        />
+      </div>
+      <div class="user-settings">
+        <h1 class="username">{{ UserDetails.user_name }}</h1>
+        <button class="btn edit-profile-btn">Edit Profile</button>
+        <button class="btn settings-btn" aria-label="profile settings">
+          <a [routerLink]="['/settings']"><i class="fas fa-cog" aria-hidden="true"></i></a>
+        </button>
+      </div>
+      <div class="user-stats">
+        <ul>
+          <li>
+            <span class="stat-count">{{ UserDetails.posts_count }}</span> posts
+          </li>
+          <li>
+            <span class="stat-count">{{ UserDetails.followers_count }}</span>
+            followers
+          </li>
+          <li>
+            <span class="stat-count">{{ UserDetails.following_count }}</span>
+            following
+          </li>
+        </ul>
+      </div>
+      <div class="user-bio">
+        <p>
+          <span class="real-name">{{ UserDetails.user_name }}</span>
+          {{ UserDetails.bio }} 📷✈️🏕️
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container2">
+    <div class="photo-gallery">
+      <div
+        class="photo-item"
+        tabindex="0"
+        *ngFor="let image of UserDetails.posts"
+      >
+        <img
+          *ngIf="isImage(image.media_url)"
+          [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + image.media_url"
+          (click)="seePost(image.id)"
+        />
+        <video
+          controls
+          *ngIf="!isImage(image.media_url)"
+          (click)="seePost(image.id)"
+        >
+          <source
+            [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + image.media_url"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</main>

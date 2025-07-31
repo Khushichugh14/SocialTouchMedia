@@ -1,0 +1,26 @@
+<div class="settings-container">
+    <div class="settings-menu">
+      <div class="card">
+        <a [routerLink]="['/settings/profile']"><i class="fa-solid fa-user m-2"></i>Profile Settings</a>
+      </div>
+      <!-- <div class="card">
+        <a [routerLink]="['/settings/blocked-accounts']">Blocked Accounts</a>
+      </div> -->
+      <div class="card">
+        <a [routerLink]="['/settings/content-settings']"><i class="fa-solid fa-gears m-2"></i>Content Settings</a>
+      </div>
+      <div class="card">
+        <a [routerLink]="['/settings/notifications-settings']"><i class="fa-regular fa-bell m-2"></i>Notifications Settings</a>
+      </div>
+      <div class="card">
+        <a [routerLink]="['/settings/privacy-settings']"><i class="fa-solid fa-lock m-2"></i>Privacy Settings</a>
+      </div>
+      <div class="card">
+        <a [routerLink]="['/settings/deactivation-logout']"><i class="fa-solid fa-person-circle-minus m-2"></i>Deactivation or Logout</a>
+      </div>
+    </div>
+    <div class="settings-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

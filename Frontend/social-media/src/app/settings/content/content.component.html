@@ -1,0 +1,43 @@
+<div>
+    <h2>Content Settings</h2>
+              <div class="content-content d-flex d-row">
+                <!-- <p>Change Theme </p>
+                <div id="theme-container">
+                  <div class="theme-option light-theme" onclick="enableLightTheme()">Light Theme</div>
+                  <div class="theme-option dark-theme" onclick="enableDarkTheme()">Dark Theme</div>
+                </div> -->
+
+              </div>
+              <div class="saved-posts">
+                <h4 class="text-center"><i class="fa-solid fa-bookmark"></i>Saved Posts</h4>
+                <!-- <i class="fa-regular fa-square-plus fa-7x icon-saved"></i> -->
+                <div class="saved-images">
+                  <div
+                      class="photo-item"
+                      tabindex="0"
+                      *ngFor="let image of UserDetails?.saved_posts"
+                    >
+                      <img
+                        *ngIf="isImage(image.media_url)"
+                        [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + image.media_url"
+                        (click)="seePost(image.id)"
+                      />
+        <!-- <video
+          controls
+          *ngIf="!isImage(image.media_url)"
+          (click)="seePost(image.id)"
+        >
+          <source
+            [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + image.media_url"
+            type="video/mp4"
+          /> -->
+          <!-- Your browser does not support the video tag. -->
+        <!-- </video> -->
+      </div>
+                  <!-- <img
+                  *ngIf="isImage(post.media_url)"
+                  [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + post.media_url"
+                /> -->
+                </div>
+              </div>
+</div>

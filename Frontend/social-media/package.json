@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@angular/cli": "^20.0.5",
+    "@angular/common": "^20.0.3",
+    "@angular/compiler": "^20.0.3",
+    "@angular/compiler-cli": "^20.0.3",
+    "@angular/core": "^20.0.3",
+    "@angular/forms": "^20.0.3",
+    "@angular/platform-browser": "^20.0.3",
+    "@angular/platform-browser-dynamic": "^20.0.3",
+    "@angular/router": "^20.0.3",
+    "@ng-bootstrap/ng-bootstrap": "^19.0.0",
+    "force": "^0.0.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.0.3",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "dev": "ng run social-media:build:development"
+  }
+}

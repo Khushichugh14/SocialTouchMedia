@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<div class="container mt-5">
+  <div class="d-flex">
+    <!-- <div class="d-flex"> -->
+      <div class="col-md-3"> <!-- Adjust this width to your desired width for app-side -->
+        <app-side style="width: 250px;"></app-side>
+      </div>
+      <div class="col-md-6 " style="margin-left: 20px;">
+          <div class="p-3 bg-white text-center " style="border-radius: 16px;">
+            <p>Followers</p>
+            <div *ngIf="followers.length === 0"><h4>No Followers , Follow & Make New Friends</h4></div>
+              <div *ngFor="let follower of followers" class="d-flex flex-row justify-content-between align-content-center mb-2">
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <img class="rounded-circle" [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + follower.image_url" width="55" style="max-width: 55px; max-height: 55px; margin-right: 10px;">
+                  <span class="font-weight-bold">{{follower.user_name}}</span>
+                  </div>
+                  <button class="btn btn-outline-primary btn-sm" type="button" style="margin-left: 50px;" (click)="remove(follower)">Remove</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</div>

@@ -1,0 +1,13 @@
+<div id="privacy">
+  <h2>Privacy Settings</h2>
+  <h4 class="text-center p-2"><i class="fa-solid fa-shield-halved"></i>Account Privacy</h4>
+  <form (ngSubmit)="savePrivacySettings()">
+    <div class="privacy-content d-flex d-col">
+      <p class="m-0 p-0"> Choose your Account to be Private/Public</p>
+      <p class="text-muted  m-0 p-0">If you choose your account as Private then profile, content are only visible to your friends whereas Public account profile, content are visible to everyone.</p>
+      <label><input type="radio" name="privacy" [(ngModel)]="privacy" value="Private" class="m-2">Private</label>
+      <label><input type="radio" name="privacy" [(ngModel)]="privacy" value="Public" class="m-2">Public</label>
+      <button class="btn btn-social" type="submit">Save Settings</button>
+    </div>
+  </form>
+</div>

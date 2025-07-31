@@ -1,0 +1,20 @@
+.d-col{
+    flex-direction: column;
+}
+
+#privacy h4{
+    margin-top: 40px;
+    background-color: #8e44ad;
+    color: white;
+}
+
+.privacy-content{
+   background-color:white;
+   align-items: center;
+   padding: 7px;
+}
+
+.btn-social{
+    background-color :#8e44ad;
+    color:white;
+}

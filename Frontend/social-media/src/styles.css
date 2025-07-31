@@ -1,0 +1,453 @@
+/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Variables */
+:root {
+  --primary-colour-hue: 252;
+  --dark-colour-lightness: 17%;
+  --light-colour-lightness: 95%;
+  --white-colour-lightness: 100%;
+  --colour-white: hsl(252, 30%, var(--white-colour-lightness));
+  --colour-light: #E7E6F7;
+  --colour-gray: hsl(var(--primary-colour-hue), 15%, 65%);
+  --colour-primary: purple;
+  --color-pri: hsl(210, 71%, 56%);
+  --colour-secondary: #d6ccff;
+  --colour-success: #51fb51;
+  --colour-danger: #fb5151;
+  --colour-dark: hsl(252, 30%, var(--dark-colour-lightness));
+  --colour-black: #151221;
+  --colour-logo-dark: #121212;
+
+  --border-radius: 2rem;
+  --card-border-radius: 1rem;
+  --btn-padding: 0.6rem 1rem;
+  --search-padding: 0.6rem 1rem;
+  --card-padding: 1rem;
+
+  --sticky-top-left: 5.4rem;
+  --sticky-top-right: -18rem;
+}
+/* Global */
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--colour-dark);
+  background: var(--colour-light);
+  overflow-x: hidden;
+}
+*, *::after,*::before {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+}
+.btn {
+  display: inline-block;
+  padding: var(--btn-padding);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all300ms ease;
+  font-size: 0.9rem;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn-primary {
+  background: var(--colour-primary);
+  color: white;
+  font-weight: 500;
+}
+.text-bold {
+  font-weight: 600;
+}
+.text-muted {
+  color: var(--colour-gray);
+}
+.logo-clr {
+  color: var(--colour-primary);
+}
+
+/* Navbar */
+.container {
+  width: 95%;
+  margin: auto;
+}
+.profile-picture {
+  width: 3rem;
+  height: 3rem; /* Set height equal to width to maintain a perfect circle */
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: contain; /* Ensures the image covers the entire area */
+}
+
+video{
+  width: 700px;
+  height: 500px;
+}
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+nav {
+  width: 100%;
+  background: var(--colour-secondary);
+  padding: 0.7rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-bar {
+  background: white;
+  border-radius: 2rem;
+  padding: 10px;
+}
+.search-bar input[type="search"] {
+  background: transparent;
+  width: 30vw;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: var(--colour-dark);
+  border: none;
+}
+.search-bar input[type="search"]::placeholder {
+  color: var(--colour-gray);
+  font-family: "Poppins", sans-serif;
+}
+nav .create {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+@media screen and (max-width: 992px) {
+  nav .search-bar {
+    display: none;
+  }
+}
+/* Main */
+main {
+  margin-top: 20px;
+}
+main .container {
+  display: grid;
+  grid-template-columns: 16vw auto 18vw;
+  gap: 1.5rem;
+  position: relative;
+}
+/* LEFT */
+main .container .left {
+  height: max-content;
+  position: sticky;
+  top: var(--sticky-top-left);
+}
+main .container .left .profile {
+  padding: var(--card-padding);
+  background: var(--colour-white);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  color: var(--colour-dark);
+  width: 100%;
+}
+
+/* SIDEBAR */
+.left .sidebar {
+  margin-top: 1rem;
+  background: var(--colour-white);
+  border-radius: var(--card-border-radius);
+}
+.left .sidebar .menu-items {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  cursor: pointer;
+  transition: all 300ms ease;
+  position: relative;
+  color: var(--colour-dark);
+}
+.left .sidebar .menu-items:hover {
+  background: var(--colour-light);
+}
+.left .sidebar i {
+  font-size: 1.2rem;
+  color: var(--colour-gray);
+  margin-left: 2rem;
+  position: relative;
+}
+.left .sidebar i .notification-count {
+  background: var(--colour-danger);
+  color: var(--colour-white);
+  font-size: 0.6rem;
+  width: fit-content;
+  border-radius: 0.8rem;
+  padding: 0.2rem 0.3rem;
+  position: absolute;
+  top: -0.2rem;
+  right: -0.3rem;
+}
+.left .sidebar h3 {
+  margin-left: 1.5rem;
+  font-size: 1rem;
+}
+.left .sidebar .active {
+  background: var(--colour-light);
+}
+.left .sidebar .active i,
+.left .sidebar .active h3 {
+  color: var(--colour-primary);
+}
+.left .sidebar .active::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  background: var(--colour-primary);
+}
+.left .sidebar .menu-items:first-child.active {
+  border-top-left-radius: var(--card-border-radius);
+  overflow: hidden;
+}
+.left .sidebar .menu-items:last-child.active {
+  border-bottom-left-radius: var(--card-border-radius);
+  overflow: hidden;
+}
+.left .btn {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* MIDDLE */
+.middle .stories{
+  display: flex;
+  justify-content: space-between;
+  height: 12rem;
+  gap: 0.5rem;
+}
+.middle .stories .story{
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 0.75rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.middle .stories .story:nth-child(1){
+  background: url(https://source.unsplash.com/180x320/?nature) no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(2){
+  background: url(https://source.unsplash.com/180x320/?farm) no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(3){
+  background: url(https://source.unsplash.com/180x320/?aerospace) no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(4){
+  background: url(https://source.unsplash.com/180x320/?garden) no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(5){
+  background: url(https://source.unsplash.com/180x320/?travel) no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(6){
+  background: url(https://source.unsplash.com/180x320/?flower) no-repeat center center/cover;
+}
+.middle .stories .story::before{
+  content: "";
+  display: block;
+  opacity: 0.5;
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(transparent, black);
+  position: absolute;
+  bottom: 0;
+}
+.middle .stories .story .name{
+  z-index: 2;
+}
+.middle .story .profile-picture{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  align-self: center;
+  margin-top: 20px;
+  opacity: 1;
+  z-index: 2;
+  border: 3px solid var(--colour-primary);
+}
+.middle .create-post{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  background: var(--colour-white);
+  padding: 0.4rem var(--card-padding);
+  border-radius: var(--border-radius);
+}
+.middle .create-post input[type="text"]{
+  justify-self: start;
+  width: 100%;
+  padding-left: 1rem;
+  color: var(--colour-dark);
+  font-family: 'Poppins', sans-serif;
+  background: none;
+}
+.middle .create-post input[type="submit"]{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+/* FEEDS */
+.middle .feeds .feed{
+  background: var(--colour-white);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.middle .feed .user{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.middle .feed .head{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.middle .feed .photo{
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  margin: 0.7rem 0;
+}
+.middle .feed .action-btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin: 0.6rem;
+}
+.middle .feed .action-btns .interaction-btn{
+  display: flex;
+  gap: 1rem;
+}
+.middle .feed .action-btns .interaction-btn a, .bookmark-btn a{
+  cursor: pointer;
+}
+.middle .liked-by{
+  display: flex;
+  align-items: center;
+}
+.middle .liked-by span{
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--colour-white);
+  margin-left: -0.6rem;
+}
+.middle .liked-by span:first-child{
+  margin: 0;
+}
+.middle .liked-by p{
+  margin-left: 0.5rem;
+}
+.hashtag{
+  color: var(--colour-primary);
+}
+
+/* RIGHT */
+main .container .right{
+  height: max-content;
+  position: sticky;
+  top: var(--sticky-top-right);
+  bottom: 0;
+}
+/* Messages */
+.right .notifications{
+  background: var(--colour-white);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+}
+.right .notifications .heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.right .notifications i{
+  font-size: 1rem;
+}
+.right .notifications .notification{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  /* margin: 20px; */
+}
+.right .notifications .notification b{
+  font-size: 0.8rem;
+}
+.right .profile-picture img{
+  border-radius: 50%;
+}
+.right .notifications .notification:last-child{
+  margin: 0;
+}
+.right .notifications .notification p{
+  font-size: 0.8rem;
+}
+
+/* NOTIFICATION POPUP */
+.left .notification-popup {
+  position: absolute;
+  top: 0;
+  left: 110%;
+  width: 28rem;
+  background: var(--colour-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 0 2rem hsl(var(--color-pri), 75%, 60% 25%);
+  z-index: 10;
+  padding: var(--card-padding);
+  display: none;
+}
+.left .notification-popup::before {
+  content: "";
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+  background: var(--colour-white);
+  position: absolute;
+  top: 0.6rem;
+  left: -0.5rem;
+  transform: rotate(45deg);
+}
+.left .notification-popup > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.left .notification-popup small {
+  display: block;
+}
+
+a{
+    text-decoration: none;
+}

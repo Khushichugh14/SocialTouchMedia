@@ -1,0 +1,97 @@
+<div class="feed" >
+  <div class="head">
+    <div class="user" (click)="showUser(post.user_id)">
+      <div class="profile-picture">
+        <img [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + post.image_url" />
+      </div>
+      <div class="info">
+        <h3>{{ post.user_name }}</h3>
+        <small>India, {{ post.created_at }}</small>
+      </div>
+    </div>
+    <span class="edit"><i class="fa-solid fa-ellipsis"></i></span>
+  </div>
+  <div class="photo" (click)="navigateProfile()">
+    <img
+      *ngIf="isImage(post.media_url)"
+      [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + post.media_url"
+    />
+    <video controls *ngIf="!isImage(post.media_url)">
+      <source
+        [src]="
+          API_URL.BACKEND_URL + 'getUploadfiles/' + post.media_url
+        "
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="action-btns">
+    <div class="interaction-btn">
+      <a
+        (click)="toggleLike(post)"
+        [class.red-heart]="post.is_liked"
+        [class.heart-pulse]="post.is_liked"
+        [class.heart-break]="!post.is_liked"
+        id="like-btn"
+      >
+        <i
+          [class]="post.is_liked ? 'fas fa-heart' : 'far fa-heart'"
+        ></i>
+      </a>
+      <a
+        ><i
+          [class]="
+            post.isCommentVisible
+              ? 'fa-solid fa-comment'
+              : 'fa-regular fa-comment'
+          "
+          (click)="iscmtVisible(post)"
+        ></i
+      ></a>
+      <a><i class="far fa-paper-plane"></i></a>
+    </div>
+    <a
+    (click)="savePost(post)"
+    [class.black-save]="post.isSaved"
+    [class.black-pulse]="post.isSaved"
+    [class.black-break]="!post.isSaved"
+    id="save-btn"
+  >
+      <i [class]="post.isSaved ? 'fa-solid fa-bookmark': 'fa-regular fa-bookmark' "> </i>
+</a>
+    
+  </div>
+  <div class="liked-by">
+    <span
+      ><img src="https://source.unsplash.com/50x50/?human"
+    /></span>
+    <span
+      ><img src="https://source.unsplash.com/50x50/?humans"
+    /></span>
+    <span><img src="https://source.unsplash.com/50x50/?male" /></span>
+    <p>
+      Liked by <b>Rihanna Marsh</b> and
+      <b>{{ post.no_of_likes }} others</b>
+    </p>
+  </div>
+  <div class="caption">
+    <p>
+      <b>{{ post.user_name }}</b> {{ post.caption }}
+      <span class="hashtag" [innerHTML]="post.tags"
+        >#{{ post.tags }}</span
+      >
+    </p>
+  </div>
+  <div class="comments text-muted">
+    View all {{ post.no_of_comments }} comments
+  </div>
+  <app-comments
+    [ngClass]="{
+      'comment-box': !post.isCommentVisible,
+      closed: !post.isCommentVisible
+    }"
+    [post_id]="post.post_id"
+    *ngIf="post.isCommentVisible"
+  ></app-comments>
+</div>

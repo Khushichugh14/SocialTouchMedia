@@ -1,0 +1,128 @@
+<div class="mt-2 mb-2" style="height: auto">
+  <div class="d-flex justify-content-center row">
+    <div class="d-flex flex-column">
+      <div class="coment-bottom bg-white p-2 px-4">
+        <form
+          class="d-flex flex-row add-comment-section mt-4 mb-4"
+          [formGroup]="commentForm"
+          (ngSubmit)="addComment()"
+        >
+          <img
+            class="img-fluid img-responsive rounded-circle mr-2"
+            src="https://i.imgur.com/qdiP4DB.jpg"
+            width="38"
+            style="width: 50px"
+          /><input
+            type="text"
+            class="form-control mr-3"
+            placeholder="Add comment"
+            formControlName="comment"
+          />
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!commentForm.valid"
+          >
+            Comment
+          </button>
+        </form>
+        <div *ngIf="comments.length === 0">
+          <h5>No Comments !!...</h5>
+        </div>
+        <div
+          style="
+            max-height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+          "
+        >
+          <div
+            class="commented-section mt-2 d-flex flex-row align-items-center justify-content-between"
+            *ngFor="let comment of displayedComments"
+          >
+            <div
+              class="commented-section comment-text-sm mt-2"
+              [ngClass]="{ deleted: comment.is_deleted }"
+              *ngIf="!comment.is_deleted"
+            >
+              <div class="d-flex flex-row align-items-center commented-user">
+                <h5 class="mr-2">{{ comment.user_name }}</h5>
+                <span class="dot mb-1"></span>
+                <span class="mb-1 ml-2">{{ comment.comment_time }}</span>
+              </div>
+              <div class="comment-text-sm">
+                <span>{{ comment.comment }}</span>
+              </div>
+              <div class="reply-section">
+                <div class="d-flex flex-row align-items-center voting-icons">
+                  <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                  <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+                  <span class="ml-2">{{ comment.ReplyCount }}</span>
+                  <span class="dot ml-2"></span>
+                  <h6 class="ml-2 mt-1" (click)="onReply(comment)">Reply</h6>
+                  <br />
+                </div>
+                <button
+                  *ngIf="comment.ReplyCount > 0"
+                  (click)="isReplyCmtVisible(comment)"
+                  class="btn btn-danger mb-2"
+                >
+                  View More Replies
+                </button>
+                <div *ngIf="comment.is_reply" id="reply-{{ comment.id }}">
+                  <form action="" [formGroup]="replyCommentForm">
+                    <input
+                      type="text"
+                      placeholder="enter your reply..."
+                      formControlName="comment"
+                    />
+                    <button
+                      class="btn btn-primary"
+                      (click)="commentReply(comment)"
+                    >
+                      Reply
+                    </button>
+                  </form>
+                </div>
+                <!-- <app-comments
+                [ngClass]="{ 'comment-box': !comment.repliesBox, 'closed': !comment.repliesBox }"
+                [post_id]= "post.post_id"
+                *ngIf="post.isCommentVisible"
+                ></app-comments> -->
+                <ng-container
+                  *ngIf="comment.repliesBox && comment.ReplyCount > 0"
+                >
+                  <app-show-reply-comments
+                    [ngClass]="{
+                      'comment-box': !comment.repliesBox,
+                      closed: !comment.repliesBox
+                    }"
+                    [comment_id]="comment.id"
+                    (count)="handleCommentCount($event)"
+                    style="width: 100%; margin: auto; margin-top: 20px"
+                  >
+                  </app-show-reply-comments>
+                </ng-container>
+              </div>
+            </div>
+            <div class="item" (click)="deleteItem(comment)">
+              <span class="content"></span>
+              <div class="trash-can">
+                <i class="fa-solid fa-trash fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt-2"
+            *ngIf="comments && comments.length > displayedComments.length"
+          >
+            <button class="btn btn-primary" (click)="loadMoreComments()">
+              View More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

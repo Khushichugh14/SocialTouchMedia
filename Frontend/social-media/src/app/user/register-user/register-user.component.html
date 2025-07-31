@@ -1,0 +1,49 @@
+<img src="assets/images/Component 1.png" alt="" style=" height: 95vh; max-width: 90%; margin-left: 700px;  ">
+<img src="assets/images/Other 07reg.png" alt=""
+  style="margin-top: -500px; margin-left:650px; width: 400px; height: 400px; ">
+<div class="container">
+  <h1>Sign Up</h1>
+  <form class="form-group" [formGroup]="registerForm" (submit)="submit()">
+      <div>
+        <label for="Name">UserName:</label>
+        <input type="text" placeholder="Enter your Name" formControlName="user_name">
+      </div>
+
+      <div>
+        <label for="Email">Email:</label>
+        <input type="text" placeholder="Enter your Email" formControlName="email">
+      </div>
+
+      <div>
+        <label for="Phone No">Phone No:</label>
+        <input type="text" placeholder="Enter your number" formControlName="contact">
+      </div>
+
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" placeholder="Enter your Birth" formControlName="dob">
+      </div>
+
+      <div>
+        <label for="bio">BIO:</label>
+        <input type="text" placeholder="BIO" formControlName="bio">
+      </div>
+
+      <div>
+        <label for="Password">Password:</label>
+        <input type="password" placeholder="Enter your Password" formControlName="password">
+      </div>
+
+      <div>
+        <label for="Password">Confirm Password:</label>
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+      </div>
+      <div>
+        <label for="dp">Profile Pic</label>
+        <input type="file" id="dp" name="dp" accept=".jpeg,.jpg,.png" (change)="read($event)">     
+      </div>
+    <button type="submit" class="btn" style="margin-left: 260px;">Sign Up</button>
+    <p style="margin-top: 20px; margin-left:250px ;">Already have an account ? /<a href="#"
+        style="margin-left: 10px; color: rgb(255, 15, 255); text-decoration: none;">Login</a></p>
+  </form>
+</div>

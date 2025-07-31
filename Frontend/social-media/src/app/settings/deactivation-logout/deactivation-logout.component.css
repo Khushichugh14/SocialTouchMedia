@@ -1,0 +1,10 @@
+.deactivate{
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.btn-social{
+    background-color :#8e44ad;
+    color:white;
+}

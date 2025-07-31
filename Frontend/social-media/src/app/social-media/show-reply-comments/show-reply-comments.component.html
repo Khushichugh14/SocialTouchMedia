@@ -1,0 +1,42 @@
+<div
+          style="
+            width: 150%;
+            margin: auto;
+            margin-left: 85px;
+            background-color: lightgrey;
+            padding: 15px;
+            border-radius: 10px;
+          "
+        >
+          <div
+            class="commented-section  d-flex flex-row align-items-center justify-content-between"
+            
+            *ngFor="let comment of displayedComments"
+          >
+            <div
+              class="commented-section comment-text-sm p-2"
+              [ngClass]="{ deleted: comment.is_deleted }"
+              *ngIf="!comment.is_deleted"
+            >
+              <div class="d-flex flex-row align-items-center commented-user">
+                <h5 class="mr-2">{{ comment.reply_user_name }}</h5>
+                <span class="dot mb-1"></span>
+                <span class="mb-1 ml-2">{{ comment.reply_comment_time }}</span>
+              </div>
+              <div class="comment-text-sm">
+                <span>{{ comment.reply_comment }}</span>
+              </div>
+            </div>
+            <div (click)="deleteItem(comment)" style="cursor: pointer;">
+                <i class="fa-solid fa-trash fa-2x"></i>
+            </div>
+          </div>
+          <div
+            class="mt-2"
+            *ngIf="comments && comments.length > displayedComments.length"
+          >
+            <button class="btn btn-primary" (click)="loadMoreComments()">
+              View More
+            </button>
+          </div>
+        </div>

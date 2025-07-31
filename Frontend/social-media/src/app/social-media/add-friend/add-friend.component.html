@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<app-nav></app-nav>
+<div class="container mt-5">
+  <div class="d-flex">
+    <div class="col-md-3">
+      <app-side style="width: 250px;"></app-side>
+    </div>
+    <div class="col-md-9" style="margin-left: 20px;">
+      <div class="d-flex justify-content-around mb-3 custom-button-container">
+        <button class="btn btn-primary custom-button " (click)="navigateTo('following')">Following</button>
+        <button class="btn btn-primary custom-button" (click)="navigateTo('followers')">Followers</button>
+      </div>
+      <div class="row">
+        <div *ngFor="let friend of friends" class="col-md-4 mb-4">
+          <div class="card friend-card">
+            <img [src]="API_URL.BACKEND_URL + 'getUploadfiles/' + friend.image_url" alt="{{friend.user_name}}" class="card-img-top">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{friend.user_name}}</h5>
+              <button class="btn btn-success" (click)="addFriend(friend)">Add Friend</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
