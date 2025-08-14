@@ -10,7 +10,7 @@
   <div class="rightLogin">
     <!-- logo -->
     <h1 style="font-size: 45px; margin-left: 85px">Log In</h1>
-    <form class="form-group" [formGroup]="loginForm" (submit)="submit()">
+    <form class="form-group" formGroup="loginForm" (submit)="submit()">
       <div class="d-flex flex-column">
         <label for="Name">UserName:</label>
         <input
@@ -35,7 +35,7 @@
           <!-- <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
           </label> -->
-          <p class="forgotpsd"> <a [routerLink]="['/forgot-password']">Forgot Password?</a></p>
+          <p class="forgotpsd"> <a routerLink="/forgot-password">Forgot Password?</a></p>
       </div>
 
       <button type="submit" class="btn" style="margin-left: 85px;">Login</button>
@@ -58,7 +58,7 @@
           type="submit"
           class="btn"
           style="margin-left: 10px; color: grey; text-decoration: none"
-        [routerLink]="['/register']">
+        routerLink="/register">
           Sign up
         </button>
       </p>

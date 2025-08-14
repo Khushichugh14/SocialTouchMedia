@@ -3,7 +3,7 @@
   style="margin-top: -500px; margin-left:650px; width: 400px; height: 400px; ">
 <div class="container">
   <h1>Sign Up</h1>
-  <form class="form-group" [formGroup]="registerForm" (submit)="submit()">
+  <form class="form-group" formGroup="registerForm" (submit)="submit()">
       <div>
         <label for="Name">UserName:</label>
         <input type="text" placeholder="Enter your Name" formControlName="user_name">
@@ -40,7 +40,7 @@
       </div>
       <div>
         <label for="dp">Profile Pic</label>
-        <input type="file" id="dp" name="dp" accept=".jpeg,.jpg,.png" (change)="read($event)">     
+        <input type="file" id="dp" name="dp" accept=".jpeg,.jpg,.png" (change)="read($event)">
       </div>
     <button type="submit" class="btn" style="margin-left: 260px;">Sign Up</button>
     <p style="margin-top: 20px; margin-left:250px ;">Already have an account ? /<a href="#"

@@ -4,11 +4,16 @@ import { CookieService } from 'ngx-cookie-service';
 import { POST } from 'src/app/shared/interfaces/post.interface';
 import { APP_CONSTANTS } from 'src/app/shared/constants/app.constants';
 import { Router } from '@angular/router';
+import { NavComponent } from "src/app/shared/nav/nav.component";
+import { SideComponent } from "src/app/shared/side/side.component";
+import { CreatePostComponent } from "../create-post/create-post.component";
+import { CommentsComponent } from "../comments/comments.component";
 
 @Component({
   selector: 'app-feed-page',
   templateUrl: './feed-page.component.html',
-  styleUrls: ['./feed-page.component.css']
+  styleUrls: ['./feed-page.component.css'],
+  imports: [NavComponent, SideComponent, CreatePostComponent, CommentsComponent]
 })
 export class FeedPageComponent implements OnInit {
   // Constants

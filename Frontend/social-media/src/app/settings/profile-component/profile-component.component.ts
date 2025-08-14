@@ -13,7 +13,7 @@ import { User } from 'src/app/shared/interfaces/user.interface';
   templateUrl: './profile-component.component.html',
   styleUrls: ['./profile-component.component.css']
 })
-export class ProfileComponentComponent implements OnInit{
+export class ProfileComponent implements OnInit{
   API_URL = APP_CONSTANTS
   changePasswordForm!: FormGroup;
   // currentUserId: number=parseInt(this.cookieService.get("user_id"));
@@ -63,7 +63,7 @@ export class ProfileComponentComponent implements OnInit{
       const reader = new FileReader();
       reader.onload = e => this.profilePictureUrl = reader.result as string;
       reader.readAsDataURL(file);
-  
+
       this.profileService.uploadProfilePicture(file, userId).subscribe(
         (response) => {
           console.log('Success:', response);
@@ -84,7 +84,7 @@ export class ProfileComponentComponent implements OnInit{
       this.http.post<any>(`${APP_CONSTANTS.BACKEND_URL}updateusername/${this.user_id}`, {newUsername }).subscribe(response => {
         console.log(response); // Handle response
         // this.username = newUsername; // Update locally if needed
-        
+
       });
     }
   }
@@ -115,7 +115,7 @@ export class ProfileComponentComponent implements OnInit{
       }
     })
   }
-  
+
   }
 
 

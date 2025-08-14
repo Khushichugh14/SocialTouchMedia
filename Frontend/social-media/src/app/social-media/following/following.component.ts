@@ -3,11 +3,14 @@ import { SocialMediaService } from '../social-media.service';
 import { followers } from 'src/app/shared/interfaces/followers-following.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { APP_CONSTANTS } from 'src/app/shared/constants/app.constants';
+import { NavComponent } from "src/app/shared/nav/nav.component";
+import { SideComponent } from "src/app/shared/side/side.component";
 
 @Component({
   selector: 'app-following',
   templateUrl: './following.component.html',
-  styleUrls: ['./following.component.css']
+  styleUrls: ['./following.component.css'],
+  imports: [NavComponent, SideComponent]
 })
 export class FollowingComponent implements OnInit{
 

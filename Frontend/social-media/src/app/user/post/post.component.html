@@ -60,7 +60,7 @@
   >
       <i [class]="post.isSaved ? 'fa-solid fa-bookmark': 'fa-regular fa-bookmark' "> </i>
 </a>
-    
+
   </div>
   <div class="liked-by">
     <span
@@ -87,7 +87,7 @@
     View all {{ post.no_of_comments }} comments
   </div>
   <app-comments
-    [ngClass]="{
+    ngClass="{
       'comment-box': !post.isCommentVisible,
       closed: !post.isCommentVisible
     }"

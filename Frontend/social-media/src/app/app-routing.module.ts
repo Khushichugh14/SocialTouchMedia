@@ -9,7 +9,7 @@ import { FollowersFollowingComponent } from './social-media/followers-following/
 import { FollowingComponent } from './social-media/following/following.component';
 import { AddFriendComponent } from './social-media/add-friend/add-friend.component';
 import { PostComponent } from './user/post/post.component';
-import { ProfileComponentComponent } from './settings/profile-component/profile-component.component';
+import { ProfileComponent } from './settings/profile-component/profile-component.component';
 import { BlockedComponent } from './settings/blocked/blocked.component';
 import { ContentComponent } from './settings/content/content.component';
 import { NotificationComponent } from './settings/notification/notification.component';
@@ -58,7 +58,7 @@ const routes: Routes = [
     path: 'settings',
     component: SettingsComponent,
     children: [
-      { path: 'profile', component:ProfileComponentComponent },
+      { path: 'profile', component:ProfileComponent },
       { path: 'blocked-accounts', component: BlockedComponent },
       { path: 'content-settings', component: ContentComponent},
       { path: 'notifications-settings', component: NotificationComponent },

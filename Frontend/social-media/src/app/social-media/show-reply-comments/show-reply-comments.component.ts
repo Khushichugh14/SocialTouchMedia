@@ -9,7 +9,7 @@ import { ReplyComment } from 'src/app/shared/interfaces/replyComment.interface';
   templateUrl: './show-reply-comments.component.html',
   styleUrls: ['./show-reply-comments.component.css']
 })
-export class ShowReplyCommentsComponent {
+export class ShowReplyComments {
   @Input() comment_id!: number;
   @Output() count: EventEmitter<number> = new EventEmitter<number>();
   user_id: number = parseInt(this.cookieService.get('user_id'));
@@ -44,7 +44,7 @@ export class ShowReplyCommentsComponent {
       this.displayedComments = this.comments.slice(0, 10);
       if(this.comments.length == 0){
         this.count.emit(this.comment_id);
-        
+
       } else {
         this.count.emit(-1);
       }

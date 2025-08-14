@@ -3,11 +3,13 @@ import { Comment } from 'src/app/shared/interfaces/comment.interface';
 import { SocialMediaService } from '../social-media.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ShowReplyComments } from "../show-reply-comments/show-reply-comments.component";
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  styleUrls: ['./comments.component.css'],
+  imports: [ShowReplyComments]
 })
 export class CommentsComponent implements OnInit {
   @Input() post_id!: number;

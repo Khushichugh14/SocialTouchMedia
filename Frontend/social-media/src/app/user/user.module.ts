@@ -16,11 +16,6 @@ import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
-    RegisterUserComponent,
-    LoginUserComponent,
-    HomeComponent,
-    ForgotPasswordComponent,
-    PostComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +24,12 @@ import { RouterLink } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
     SocialMediaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RegisterUserComponent,
+    LoginUserComponent,
+    HomeComponent,
+    ForgotPasswordComponent,
+    PostComponent
   ],
   exports: [
     RegisterUserComponent,

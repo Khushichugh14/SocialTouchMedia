@@ -9,14 +9,13 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    NavComponent,
-    SideComponent
-
   ],
   imports: [
     CommonModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavComponent,
+    SideComponent
   ],
   exports:[
     NavComponent,

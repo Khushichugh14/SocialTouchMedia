@@ -4,7 +4,7 @@
       <div class="coment-bottom bg-white p-2 px-4">
         <form
           class="d-flex flex-row add-comment-section mt-4 mb-4"
-          [formGroup]="commentForm"
+          formGroup="commentForm"
           (ngSubmit)="addComment()"
         >
           <img
@@ -43,7 +43,7 @@
           >
             <div
               class="commented-section comment-text-sm mt-2"
-              [ngClass]="{ deleted: comment.is_deleted }"
+              ngClass="{ deleted: comment.is_deleted }"
               *ngIf="!comment.is_deleted"
             >
               <div class="d-flex flex-row align-items-center commented-user">
@@ -71,7 +71,7 @@
                   View More Replies
                 </button>
                 <div *ngIf="comment.is_reply" id="reply-{{ comment.id }}">
-                  <form action="" [formGroup]="replyCommentForm">
+                  <form action="" formGroup="replyCommentForm">
                     <input
                       type="text"
                       placeholder="enter your reply..."
@@ -94,7 +94,7 @@
                   *ngIf="comment.repliesBox && comment.ReplyCount > 0"
                 >
                   <app-show-reply-comments
-                    [ngClass]="{
+                    ngClass="{
                       'comment-box': !comment.repliesBox,
                       closed: !comment.repliesBox
                     }"

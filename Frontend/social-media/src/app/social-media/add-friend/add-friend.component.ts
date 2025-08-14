@@ -4,11 +4,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { addFriend } from 'src/app/shared/interfaces/addFriend.interface';
 import { SocialMediaService } from '../social-media.service';
 import { APP_CONSTANTS } from 'src/app/shared/constants/app.constants';
+import { NavComponent } from "src/app/shared/nav/nav.component";
+import { SideComponent } from "src/app/shared/side/side.component";
 
 @Component({
   selector: 'app-add-friend',
   templateUrl: './add-friend.component.html',
-  styleUrls: ['./add-friend.component.css']
+  styleUrls: ['./add-friend.component.css'],
+  imports: [NavComponent, SideComponent]
 })
 export class AddFriendComponent implements OnInit {
   friends!: addFriend[];

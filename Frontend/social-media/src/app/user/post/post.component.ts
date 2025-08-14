@@ -5,11 +5,13 @@ import { POST } from 'src/app/shared/interfaces/post.interface';
 import { APP_CONSTANTS } from 'src/app/shared/constants/app.constants';
 import { SocialMediaService } from 'src/app/social-media/social-media.service';
 import { CookieService } from 'ngx-cookie-service';
+import { CommentsComponent } from "src/app/social-media/comments/comments.component";
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  imports: [CommentsComponent]
 })
 export class PostComponent implements OnInit{
   postId!: number;

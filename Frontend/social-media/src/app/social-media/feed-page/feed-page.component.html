@@ -110,7 +110,7 @@
               View all {{ post.no_of_comments }} comments
             </div>
             <app-comments
-              [ngClass]="{
+              ngClass="{
                 'comment-box': !post.isCommentVisible,
                 closed: !post.isCommentVisible
               }"

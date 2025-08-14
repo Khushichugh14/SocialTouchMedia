@@ -10,12 +10,12 @@
         >
           <div
             class="commented-section  d-flex flex-row align-items-center justify-content-between"
-            
+
             *ngFor="let comment of displayedComments"
           >
             <div
               class="commented-section comment-text-sm p-2"
-              [ngClass]="{ deleted: comment.is_deleted }"
+              ngClass="{ deleted: comment.is_deleted }"
               *ngIf="!comment.is_deleted"
             >
               <div class="d-flex flex-row align-items-center commented-user">

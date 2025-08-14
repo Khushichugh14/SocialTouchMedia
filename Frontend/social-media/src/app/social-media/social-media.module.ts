@@ -8,25 +8,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FollowingComponent } from './following/following.component';
 import { AddFriendComponent } from './add-friend/add-friend.component';
 import { CommentsComponent } from './comments/comments.component';
-import { ShowReplyCommentsComponent } from './show-reply-comments/show-reply-comments.component';
+import { ShowReplyComments } from './show-reply-comments/show-reply-comments.component';
 
 
 
 @NgModule({
   declarations: [
-    CreatePostComponent,
-    FeedPageComponent,
-    FollowersFollowingComponent,
-    FollowingComponent,
-    AddFriendComponent,
-    CommentsComponent,
-    ShowReplyCommentsComponent
+  
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FeedPageComponent,
+    CreatePostComponent,
+    FollowingComponent,
+    FollowersFollowingComponent,
+    AddFriendComponent,
+    CommentsComponent,
+    ShowReplyComments
   ],
   exports:[
     FeedPageComponent,
@@ -34,7 +35,7 @@ import { ShowReplyCommentsComponent } from './show-reply-comments/show-reply-com
     FollowersFollowingComponent,
     AddFriendComponent,
     CommentsComponent,
-    ShowReplyCommentsComponent
+    ShowReplyComments
   ]
 })
 export class SocialMediaModule { }

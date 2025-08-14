@@ -11,7 +11,6 @@ import { User } from '../interfaces/user.interface';
   styleUrls: ['./side.component.css']
 })
 export class SideComponent implements OnInit{
-;
   API_URL = APP_CONSTANTS;
   UserDetails !: User
   user_id: number = parseInt(this.cookieService.get('user_id'));

@@ -1,9 +1,9 @@
 <h2>Profile Settings</h2>
 <div class="profile-settings d-flex d-col">
-   
+
   <h2 class="text-center m-3">Edit Profile</h2>
   <div class="profile-info d-flex">
-    
+
     <div class="m-3">
       <label for="profile-pic" class="text-success m-1">Edit Profile Picture</label>
     <img
@@ -21,21 +21,21 @@
       <p><i class="fa-solid fa-phone m-1"></i><span>{{ UserDetails.contact}}</span></p>
       <p><i class="fa-solid fa-envelope m-1"></i><span>{{ UserDetails.email}}</span></p>
     </div>
-    
+
     <!-- <div class="user-details">
       <p>Username: Anne98</p>
       <p>Full Name: Anne Brook</p>
       <p>Email: annebrook98@gmail.com</p>
     </div> -->
   </div>
-  
+
 
 
   </div>
-  
+
   <h2 class="text-center m-3">Password & Security</h2>
-  <div class="password-security m-3"> 
-    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()" class="password-container">
+  <div class="password-security m-3">
+    <form formGroup="changePasswordForm" (ngSubmit)="onSubmit()" class="password-container">
       <div>
         <label for="current-password">Current Password</label>
         <input class="m-1" type="password" id="current-password" formControlName="current_password">
@@ -50,7 +50,6 @@
       </div>
       <button type="submit" class="btn btn-social">Change Password</button>
     </form>
-    
-    
+
+
   </div>
-  
